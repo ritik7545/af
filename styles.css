@@ -146,7 +146,7 @@ body {
   color: var(--muted);
   font-size: 13px;
 }
-
+#featuredHeading{color:#000}
 /* Grid */
 .products-grid {
   display: grid;
