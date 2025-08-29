@@ -4,9 +4,9 @@
       id: 1,
       name: "Blue Runner Sneakers",
       category: "Shoes",
-      price: 79.99,
+    
       images: [
-        "image/1.jpg",
+        "images/img1.png",
         "image/2.jpg",
         "image/3.jpg"
       ],
@@ -16,10 +16,9 @@
       id: 2,
       name: "Sunshine Hoodie",
       category: "Apparel",
-      price: 59.0,
+      
       images: [
-        "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1200&q=80"
+        "images/img2.png",
       ],
       description: "Cozy fleece hoodie in a bold yellow tone with a relaxed fit."
     },
@@ -29,8 +28,7 @@
       category: "Accessories",
       price: 129.99,
       images: [
-        "https://images.unsplash.com/photo-1518544801976-3e188ea7c449?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1518544801976-3e188ea7c440?auto=format&fit=crop&w=1200&q=80"
+        "images/img3.jpg",
       ],
       description: "Minimal blue dial watch with stainless steel strap and water resistance."
     },
@@ -40,8 +38,7 @@
       category: "Bags",
       price: 72.5,
       images: [
-        "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1546422401-266ddefa8276?auto=format&fit=crop&w=1200&q=80"
+       "images/img4.jpg",
       ],
       description: "Everyday backpack with padded laptop sleeve and multiple pockets."
     },
@@ -51,8 +48,7 @@
       category: "Electronics",
       price: 149.99,
       images: [
-        "https://images.unsplash.com/photo-1518449037760-6c8596ae0b9b?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1518449238688-2f6c3b4a88a8?auto=format&fit=crop&w=1200&q=80"
+        "images/img5.jpg",
       ],
       description: "Over-ear headphones with deep bass and noise isolation."
     },
@@ -62,8 +58,7 @@
       category: "Apparel",
       price: 24.99,
       images: [
-        "https://images.unsplash.com/photo-1583001805342-9f1d9e387c52?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1520975648756-9f63f16a97d5?auto=format&fit=crop&w=1200&q=80"
+       "images/img6.jpg",
       ],
       description: "Soft cotton t-shirt in azure blue, perfect for everyday wear."
     },
@@ -73,8 +68,7 @@
       category: "Outdoors",
       price: 18.5,
       images: [
-        "https://images.unsplash.com/photo-1543286386-2e659306cd6c?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1518459037690-3d9d8b4c9b7b?auto=format&fit=crop&w=1200&q=80"
+        "images/img7.jpg",
       ],
       description: "Insulated stainless steel bottle keeps drinks cold or hot for hours."
     },
@@ -84,8 +78,7 @@
       category: "Accessories",
       price: 21.0,
       images: [
-        "https://images.unsplash.com/photo-1577649298314-5f1950a4f39b?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1200&q=80"
+        "images/img8.jpg",
       ],
       description: "Classic cap in golden yellow with adjustable strap."
     },
@@ -95,8 +88,7 @@
       category: "Home",
       price: 34.99,
       images: [
-        "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1523381294911-8d3cead13475?auto=format&fit=crop&w=1200&q=80"
+        "images/img9.jpg",
       ],
       description: "Sleek LED desk lamp with dimmable brightness and adjustable neck."
     },
@@ -106,8 +98,7 @@
       category: "Electronics",
       price: 29.99,
       images: [
-        "https://images.unsplash.com/photo-1527866959252-deab85ef7d63?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=80"
+        "images/img10.jpg",
       ],
       description: "Ergonomic wireless mouse with silent clicks and blue accent."
     }
@@ -311,7 +302,7 @@
   function openCategoryModal(title, description, categoryFilter) {
     els.categoryModalTitle.textContent = title;
     els.categoryModalDesc.textContent = description;
-    
+
     // Filter products by category
     const filteredProducts = products.filter(p => {
       if (categoryFilter === 'all') return true;
@@ -319,7 +310,7 @@
       if (categoryFilter === 'featured') return p.id <= 6; // Show first 6 products for featured
       return p.category === categoryFilter;
     });
-    
+
     // Render products in the category modal
     els.categoryProductsGrid.innerHTML = "";
     const frag = document.createDocumentFragment();
@@ -349,7 +340,7 @@
       frag.appendChild(card);
     });
     els.categoryProductsGrid.appendChild(frag);
-    
+
     els.categoryModal.setAttribute("data-open", "true");
     els.categoryModal.setAttribute("aria-hidden", "false");
     document.body.classList.add('modal-open');
@@ -444,7 +435,7 @@
     els.hero.prev.addEventListener("click", () => updateHero(heroIndex - 1));
     els.hero.next.addEventListener("click", () => updateHero(heroIndex + 1));
     startHeroAutoplay();
-    
+
     // Add click handlers to hero slides
     const heroSlides = els.hero.track.children;
     heroSlides[0].addEventListener("click", () => openCategoryModal("Summer Collection", "Bright yellow picks with blue-blooded prices. Up to 40% off.", "offers"));
@@ -463,7 +454,7 @@
   if (els.offers.track) {
     els.offers.prev.addEventListener("click", () => updateOffers(offersIndex - 1));
     els.offers.next.addEventListener("click", () => updateOffers(offersIndex + 1));
-    
+
     // Add click handlers to offer cards
     const offerCards = els.offers.track.children;
     offerCards[0].addEventListener("click", () => openCategoryModal("Summer Collection", "Bright yellow picks with blue-blooded prices", "offers"));
@@ -512,7 +503,7 @@
     renderFeaturedProducts();
     els.featured.prev.addEventListener("click", () => updateFeatured(featuredIndex - 1));
     els.featured.next.addEventListener("click", () => updateFeatured(featuredIndex + 1));
-    
+
     // Add click handler to featured section title
     const featuredHeading = document.getElementById("featuredHeading");
     if (featuredHeading) {
